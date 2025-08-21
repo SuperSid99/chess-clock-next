@@ -10,10 +10,10 @@ export default function Header() {
       </div>
       <div className="row header_pt2">
         <ul className="social_media">
-          <li><Link className="btn btn_icon" href="/"><IoHomeOutline /></Link></li>
-          <li><Link className="btn btn_icon" href="/projects"><IoCogOutline /></Link></li>
+          <li><Link className="btn btn_icon" href="https://siddharthsharma.dev/"><IoHomeOutline /></Link></li>
+          <li><Link className="btn btn_icon" href="https://siddharthsharma.dev/projects"><IoCogOutline /></Link></li>
           <li>
-            <a className="btn btn_icon" href="/" target="_blank" rel="noopener">
+            <a className="btn btn_icon" href="https://siddharthsharma.dev/Siddharth_Sharma_Resume.pdf" target="_blank" rel="noopener">
               <IoDocumentOutline />
             </a>
           </li>
