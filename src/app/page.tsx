@@ -8,7 +8,6 @@ import ClockDisplay from "@/components/ClockDisplay";
 import { useChessClock } from "@/hooks/useChessClock";
 
 export default function Page() {
-  // mirror your "swapped" start logic
   const [swapped, setSwapped] = useState(false);
 
   const {
@@ -61,7 +60,7 @@ export default function Page() {
             <ActionButtons
               isRunning={isRunning}
               onRefresh={refreshCountdown}
-              onTogglePlayPause={togglePause}      // ✅ only one toggle
+              onTogglePlayPause={togglePause}      
               onShuffle={() => { stopCountdown(); showPopup(); }}
             />
 

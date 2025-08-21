@@ -87,7 +87,6 @@ export default function Popup({
           </button>
         </div>
 
-        {/* Modes — optional to mirror like presets. Add `pair-grid` for symmetry if you want. */}
         <div className="popup-modes pair-grid" id="modeGrid">
           {MODES.map(({ key, title, Icon }, idx) => {
             const oddLast = MODES.length % 2 === 1 && idx === MODES.length - 1;
@@ -106,7 +105,6 @@ export default function Popup({
           })}
         </div>
 
-        {/* Presets — mirrored pairs, center the odd one */}
         {!isCustom && (
           <div className="popup-presets pair-grid" id="presetGrid">
             {visiblePresets.map((p, idx) => {
@@ -124,7 +122,7 @@ export default function Popup({
           </div>
         )}
 
-        {/* Custom inputs — already 2 equal columns (left/right of the axis) */}
+
         {isCustom && (
           <div id="customPanel" className="popup-custom">
             <div className="popup-time">

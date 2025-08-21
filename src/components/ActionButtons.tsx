@@ -9,7 +9,7 @@ export default function ActionButtons({
 }: {
   isRunning: boolean;
   onRefresh: () => void;
-  onTogglePlayPause: () => void; // <- single toggle only
+  onTogglePlayPause: () => void;
   onShuffle: () => void;
 }) {
   return (

@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import "@/styles/clock.css";   // <-- add this
+import "@/styles/clock.css";
 
 const lato = Lato({ weight: ["100","300","400"], subsets: ["latin"] });
 

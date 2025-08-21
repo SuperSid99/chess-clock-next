@@ -71,7 +71,6 @@ export function useChessClock(
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRunning, currentTimer, leftTime, rightTime, increment]);
 
   const switchTimer = useCallback(() => {
@@ -115,7 +114,7 @@ export function useChessClock(
     setIsRunning(false);
   }, []);
 
-  // Click/touch on a box acts like your touch handler
+  
   const onFacePress = useCallback(() => {
     if (!isRunning) {
       setIsRunning(true);
