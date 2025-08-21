@@ -1,0 +1,213 @@
+/* -------------------------------------------------------
+   GLOBALS / UTILS (keeps your existing classnames)
+------------------------------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.row { max-width: 1440px; margin: 0 auto; }
+ul { list-style: none; }
+.centre { text-align: center; vertical-align: middle; }
+.centretext { text-align: center; margin-top: 30vh; vertical-align: middle; }
+
+.showflex { display: flex; }
+.showblock { display: flex; } /* keep as-is (legacy) */
+
+/* Typography helpers */
+h1 { margin: 0; color: #fff; font-size: 300%; font-weight: 100; text-transform: uppercase; letter-spacing: 1px; word-spacing: 5px; }
+h2, h3 { color: #fff; letter-spacing: 1px; word-spacing: 4px; }
+h2 { font-size: 200%; }
+h3 { font-size: 100%; }
+h4 { color: #fff; font-size: 70%; }
+p  { color: #fff; font-size: 50%; }
+
+.w100 { font-weight: 100; }
+.w200 { font-weight: 200; }
+.w300 { font-weight: 300; }
+.underline { text-decoration: underline; }
+
+/* Header / Social */
+.header { display: flex; align-items: center; }
+.main_heading { padding: 25px 0; text-align: left; }
+.social_media { display: flex; float: right; }
+
+/* Buttons (links) */
+.btn:link, .btn:visited    { display: inline-block; padding: 10px 30px; font-weight: 300; text-decoration: none; border-radius: 200px; transition: background-color .2s, color .2s, border .2s; }
+.btn_icon:link, .btn_icon:visited { font-size: 130%; border: 1px solid transparent; color: #fff; }
+.btn_icon:hover, .btn_icon:active { background: #fff; border-color: #fff; color: #000; }
+
+.big_btn:link, .big_btn:visited { display: inline-block; padding: 10px 40px; font-weight: 300; text-decoration: none; border-radius: 200px; border-color: #fff; transition: background-color .2s, color .2s, border .2s; }
+
+.btn_outline:link, .btn_outline:visited {
+  display: inline-block; padding: 10px 30px; font-weight: 300; text-decoration: none;
+  border-radius: 200px; transition: background-color .2s, color .2s, border .2s; border: 1px solid #fff;
+}
+
+.spacing { padding: 0 30px; }
+
+/* -------------------------------------------------------
+   ROTATE PROMPT
+------------------------------------------------------- */
+.rotate-message {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  text-align: center; padding: 20px; border-radius: 10px;
+}
+@keyframes rotateIcon {
+  0%,10% { transform: rotate(0deg); }
+  90%,100% { transform: rotate(-90deg); }
+}
+#phoneIcon { animation: rotateIcon 2s linear infinite; }
+
+/* -------------------------------------------------------
+   TOGGLE + ACTION BUTTONS
+------------------------------------------------------- */
+.toggle-button {
+  display: inline-block; position: relative; cursor: pointer;
+  width: 80px; height: 40px; padding: 10px 30px; font-weight: 300;
+  border: 1px solid #fff; border-radius: 200px; background: #fff;
+  transition: background-color .5s, color .5s, border .5s;
+}
+.toggle-button.active { background: #000; border-color: #fff; }
+.toggle-button .circle {
+  position: absolute; top: 50%; left: 10px; transform: translateY(-50%);
+  width: 20px; height: 20px; background: #000; border-radius: 50%; transition: left .2s;
+}
+.toggle-button.active .circle { background: #fff; left: 50px; }
+
+.play-state { transform: translate(3px); }
+
+.action_btns { display: grid; align-items: center; }
+.action-button {
+  display: inline-block; padding: 10px; font-size: 300%; font-weight: 300; text-decoration: none;
+  border: 1px solid #fff; border-radius: 200px; background: transparent; color: #fff;
+  transition: background-color .2s, color .2s, border .2s;
+}
+.action-button:hover { background: #fff; color: #000; }
+
+/* -------------------------------------------------------
+   CLOCK CONTAINER + BOXES
+------------------------------------------------------- */
+.container { display: flex; gap: 30px; justify-content: center; padding: 25px; box-sizing: border-box; }
+.box {
+  display: flex; align-items: center; flex-basis: 40%; aspect-ratio: 1/1; border-radius: 30px; transition: background-color .5s;
+}
+.left-box  { background: #fff; border: 1px solid #000; }
+.right-box { background: #000; border: 1px solid #fff; }
+
+.left-box  .counter { color: #000; font-size: 700%; font-weight: 400; }
+.right-box .counter { color: #fff; font-size: 700%; font-weight: 400; }
+.left-box  .counter.active,
+.right-box .counter.active { color: #4caf50; font-size: 700%; font-weight: 400; }
+
+/* swapped (who starts) */
+.container.swapped .left-box  { background: #000; border: 1px solid #fff; }
+.container.swapped .right-box { background: #fff; border: 1px solid #000; }
+.container.swapped .left-box  .counter { color: #fff; }
+.container.swapped .right-box .counter { color: #000; }
+.container.swapped .left-box  .counter.active,
+.container.swapped .right-box .counter.active { color: #4caf50; }
+
+/* -------------------------------------------------------
+   POPUP OVERLAY + CONTENT
+------------------------------------------------------- */
+/* Use Tailwind's `.hidden` utility for hiding; we intentionally do NOT redeclare it here. */
+.popup {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(108,108,108,0.1); backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+}
+.popup-content {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  background: rgba(40,40,40,0.8);
+  width: 40%; height: 50%;
+  padding: 20px; border-radius: 12px; place-items: center; text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.popup-content h2 { margin-top: 0; }
+
+.popup-content input {
+  width: 80%; padding: 8px; margin: 15px 0; border: 1px solid #ccc; border-radius: 5px; text-align: center;
+}
+
+.popup-button {
+  display: inline-block; padding: 10px;
+  font-weight: 300; text-align: center; text-decoration: none;
+  border: 1px solid #fff; border-radius: 100px; background: transparent; color: #fff;
+  transition: background-color .2s, color .2s, border .2s;
+}
+.popup-button:hover { background: #fff; color: #000; }
+.cross { font-size: 100%; }
+.start { font-size: 150%; }
+
+.popup-heading { grid-column: 1/11; grid-row: 2/3; text-align: center; }
+.popup-cross   { grid-column: 10/11; grid-row: 1/2; }
+.popup-back    { grid-column: 1/2; grid-row: 1/2; }
+
+.popup-start   { grid-column: 1/11; grid-row: 9/11; }
+
+/* Shared slot for presets/custom; only one visible at a time via .hidden */
+#presetGrid, #customPanel { grid-column: 1/11; grid-row: 5/8; }
+
+/* Modes row */
+.popup-modes {
+  grid-column: 1/11; grid-row: 3/4;
+  display: grid; grid-auto-flow: column; gap: 10px; align-items: center; justify-content: center;
+}
+.mode-btn {
+  width: 52px; height: 52px; border: 1px solid #fff; border-radius: 8px;
+  background: transparent; color: #fff; font-size: 11px;
+  display: grid; place-items: center; cursor: pointer;
+  transition: background-color .2s, color .2s, transform .05s;
+}
+.mode-btn:hover { background: #fff; color: #000; }
+.mode-btn:active { transform: scale(0.98); }
+.mode-btn.active { background: #fff; color: #000; }
+.mode-btn ion-icon, .mode-btn svg { font-size: 18px; }
+
+/* Presets grid */
+.popup-presets {
+  grid-column: 1/11; grid-row: 5/8;
+  display: grid; grid-template-columns: repeat(5, minmax(60px, 1fr));
+  gap: 10px; width: 100%; padding: 0 10px;
+}
+.preset-btn {
+  border: 1px solid #fff; border-radius: 8px; padding: 10px 6px; text-align: center;
+  background: transparent; color: #fff; font-weight: 300; cursor: pointer;
+  transition: background-color .2s, color .2s, transform .05s, border .2s;
+}
+.preset-btn:hover { background: #fff; color: #000; }
+.preset-btn:active { transform: scale(0.98); }
+.preset-btn.selected { background: #fff; color: #000; }
+
+/* Custom panel (symmetric two columns) */
+.popup-custom {
+  grid-column: 1/11; grid-row: 5/8;
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: 20px; align-items: center; width: 100%; padding: 0 10px;
+}
+.popup-time, .popup-increment { display: flex; justify-content: center; align-items: center; }
+#customPanel input { width: 100%; max-width: 180px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; text-align: center; }
+
+/* Pair grid helper for mirrored layout (modes/presets) */
+.pair-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; row-gap: 12px; align-items: center; }
+.pair-grid > *:nth-child(odd)  { justify-self: end; }
+.pair-grid > *:nth-child(even) { justify-self: start; }
+.pair-grid > *.center-span     { grid-column: 1 / -1; justify-self: center; }
+
+/* -------------------------------------------------------
+   RESPONSIVE / ORIENTATION
+------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .row { max-width: 85vw; }
+  .social_media { float: none; text-align: center; }
+  .main_heading { text-align: center; }
+  .btn { display: block; margin: 0 auto; }
+  h1 { font-weight: 200; }
+}
+
+/* Orientation handling */
+@media (orientation: landscape) {
+  .bigcontainer { display: grid; }
+}
+@media (orientation: portrait) {
+  .rotate-message { display: block; }
+  .bigcontainer { display: none; }
+}
