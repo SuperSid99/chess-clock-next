@@ -9,10 +9,11 @@ import {
   IoHourglassOutline,
   IoConstructOutline,
 } from "react-icons/io5";
+import { IconType } from "react-icons";
 
 type ModeKey = "bullet" | "blitz" | "rapid" | "classical" | "custom";
 
-const MODES: { key: ModeKey; title: string; Icon: any }[] = [
+const MODES: { key: ModeKey; title: string; Icon: IconType }[] = [
   { key: "bullet", title: "Bullet", Icon: IoFlashOutline },
   { key: "blitz", title: "Blitz", Icon: IoSpeedometerOutline },
   { key: "rapid", title: "Rapid", Icon: IoTimerOutline },

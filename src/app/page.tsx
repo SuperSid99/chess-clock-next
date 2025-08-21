@@ -13,7 +13,7 @@ export default function Page() {
   const {
     leftTime, rightTime, currentTimer, isRunning,
     setStartAndIncrement,
-    togglePause, pauseCountdown, stopCountdown, refreshCountdown,
+    togglePause, stopCountdown, refreshCountdown,
     onFacePress, setStartSide
   } = useChessClock(600, 5, swapped ? "right" : "left");
 
